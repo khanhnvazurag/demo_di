@@ -5,7 +5,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import dagger.hilt.android.AndroidEntryPoint
 import guide.access.kernel.engine.demo_di.databinding.FragmentABinding
 import guide.access.kernel.engine.demo_di.pattern.PatternActivity
 import guide.access.kernel.engine.demo_di.utils.MediaPlayerHelper

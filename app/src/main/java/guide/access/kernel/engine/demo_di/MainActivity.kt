@@ -4,8 +4,6 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import dagger.hilt.android.AndroidEntryPoint
 import guide.access.kernel.engine.demo_di.databinding.ActivityMainBinding
 import guide.access.kernel.engine.demo_di.hilt.HiltActivity

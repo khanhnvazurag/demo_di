@@ -1,7 +1,7 @@
 package guide.access.kernel.engine.demo_di.pattern
 
 import android.content.Context
-import guide.access.kernel.engine.demo_di.ApiService
+import guide.access.kernel.engine.demo_di.api.ApiService
 import guide.access.kernel.engine.demo_di.utils.PreferenceHelper
 
 class ActiveRepositoryImpl(

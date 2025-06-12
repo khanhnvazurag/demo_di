@@ -1,14 +1,17 @@
 package guide.access.kernel.engine.demo_di.hilt
 
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import dagger.hilt.android.AndroidEntryPoint
 import guide.access.kernel.engine.demo_di.R
+import guide.access.kernel.engine.demo_di.data.SharedPreferencesManager
 import guide.access.kernel.engine.demo_di.databinding.ActivityHiltBinding
 import guide.access.kernel.engine.demo_di.hilt.fragment.FragmentC
 import guide.access.kernel.engine.demo_di.hilt.fragment.FragmentD
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class HiltActivity : AppCompatActivity() {
@@ -17,12 +20,16 @@ class HiltActivity : AppCompatActivity() {
     private lateinit var binding: ActivityHiltBinding
     private var changeFragment = false
 
+    @Inject lateinit var shared: SharedPreferencesManager
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         binding = ActivityHiltBinding.inflate(layoutInflater)
         setContentView(binding.root)
         initViewModel()
+        //use sharedPreference
+        Log.d("TAG_HiltActivity", "onCreate: ${shared.getFirstFlow()}")
 
         binding.btnNextFragment.setOnClickListener {
             changeFragment = !changeFragment

@@ -10,11 +10,11 @@ class SharedPreferencesManager(context: Context) {
 
     private val prefs: SharedPreferences = context.getSharedPreferences(KEY_SHARED, Context.MODE_PRIVATE)
 
-    fun getFirstFlow(value: Boolean) {
+    fun setFirstFlow(value: Boolean) {
         prefs.edit { putBoolean(KEY_FIRST_FLOW, value) }
     }
 
-    fun setFirstFlow(): Boolean {
+    fun getFirstFlow(): Boolean {
         return prefs.getBoolean(KEY_FIRST_FLOW, true)
     }
 

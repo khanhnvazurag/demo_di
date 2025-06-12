@@ -1,7 +1,7 @@
 package guide.access.kernel.engine.demo_di.hilt
 
-import guide.access.kernel.engine.demo_di.ApiService
 import guide.access.kernel.engine.demo_di.UserRepository
+import guide.access.kernel.engine.demo_di.api.ApiService
 import guide.access.kernel.engine.demo_di.model.User
 import javax.inject.Inject
 
