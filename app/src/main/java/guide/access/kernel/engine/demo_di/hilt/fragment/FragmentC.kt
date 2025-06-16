@@ -7,7 +7,9 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import dagger.hilt.android.AndroidEntryPoint
 import guide.access.kernel.engine.demo_di.databinding.FragmentABinding
+import guide.access.kernel.engine.demo_di.hilt.Logger
 import guide.access.kernel.engine.demo_di.utils.MediaPlayerHelper
+import javax.annotation.Nullable
 import javax.inject.Inject
 
 @AndroidEntryPoint
@@ -18,9 +20,21 @@ class FragmentC : Fragment() {
 
     private lateinit var binding: FragmentABinding
 
+    private var logger: Logger? = null
+
+    @Inject
+    fun initLogger(@Nullable logger: Logger?) {
+        this.logger = logger
+    }
+
+    fun track(event: String) {
+        logger?.log(event)
+    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        track("FragmentC")
         binding.btnStop.setOnClickListener {
             mediaPlayer.stop()
         }
@@ -28,7 +42,10 @@ class FragmentC : Fragment() {
             mediaPlayer.play()
         }
     }
-
+    override fun onPause() {
+        super.onPause()
+        mediaPlayer.stop()
+    }
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?

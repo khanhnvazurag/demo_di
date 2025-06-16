@@ -12,21 +12,10 @@ import javax.annotation.Nullable
 import javax.inject.Inject
 
 @HiltViewModel
-class UserViewModelHiltMethodInjection : ViewModel(){
-
-    private lateinit var repository: UserRepository
-
-    @Inject
-    fun initRepository(repository: UserRepository) {
-        this.repository = repository
-    }
-
-    private var logger: Logger? = null
-
-    @Inject
-    fun initLogger(@Nullable logger: Logger?) {
-        this.logger = logger
-    }
+class UserViewModelHiltFragment @Inject constructor(
+    private val repository: UserRepository,
+    @Nullable private val logger: Logger?
+)  : ViewModel(){
 
     fun track(event: String) {
         logger?.log(event)

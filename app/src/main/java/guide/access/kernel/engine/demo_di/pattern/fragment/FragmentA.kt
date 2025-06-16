@@ -27,6 +27,10 @@ class FragmentA : Fragment() {
         }
     }
 
+    override fun onPause() {
+        super.onPause()
+        mediaPlayer?.stop()
+    }
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
